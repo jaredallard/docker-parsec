@@ -2,8 +2,9 @@
 #
 # Start the docker container shit
 
-UID="$(id -u)"
+set -e -x 
 
+UID="$(id -u)"
 xhost "si:localhost:${USER}"
 
 docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
