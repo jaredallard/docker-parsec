@@ -26,4 +26,4 @@ RUN groupadd --gid 1000 parsec \
 # parsec config
 USER parsec
 COPY config.txt /home/parsec/.parsec/config.txt
-CMD "/usr/bin/parsecd'
+CMD /usr/bin/parsecd
