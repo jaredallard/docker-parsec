@@ -8,4 +8,4 @@
 
 # Example:
 # encoder_bitrate = 10
-# server_audio_cancel = 0
+server_audio_cancel = 0
