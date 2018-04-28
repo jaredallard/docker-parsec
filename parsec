@@ -2,8 +2,10 @@
 #
 # Start the docker container shit
 
+UID="$(id -u)"
+
 xhost "si:localhost:${USER}"
 
 docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
- -v /run/user/$UID/pulse:/run/user/$UID/pulse:ro --device=/dev/dri:/dev/dri \
+ -v "/run/user/$UID/pulse:/run/user/$UID/pulse:ro" --device=/dev/dri:/dev/dri \
  jaredallard/parsec
