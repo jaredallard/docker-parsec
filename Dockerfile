@@ -19,7 +19,11 @@ COPY pulse-config.conf /etc/pulse/client.conf
 # add a parsec user
 RUN groupadd --gid 1000 parsec \
 &&  useradd --gid 1000 --uid 1000 -m parsec \
-&&  usermod -aG video parsec
-USER parsec
+&&  usermod -aG video parsec \
+&&  mkdir -p /home/parsec/.parsec \
+&&  chown parsec:parsec /home/parsec/.parsec
 
-CMD /usr/bin/parsecd
+# parsec config
+USER parsec
+COPY config.txt /home/parsec/.parsec/config.txt
+CMD "/usr/bin/parsecd'

@@ -24,6 +24,10 @@ docker pull jaredallard/parsec
 your container at some point. The container has no state configure so you should
 just have to `docker pull jaredallard/parsec:<version>` and re-run `./parsec`
 
+## Persistence
+
+Bind mount `$HOME/.parsec -> /home/parsec/.parsec` i.e: `-v $HOME/.parsec:/home/parsec/.parsec`
+
 ## Setup Docker
 
 After following setup instructions below (EXCEPT GENTOO), run this:

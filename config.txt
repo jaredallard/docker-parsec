@@ -1,0 +1,11 @@
+# For help and a full list of settings visit: https://parsec.tv/config/
+
+# All configuration settings must appear on a new line.
+# Comments are allowed after a '#' character (end-of-line style).
+# All whitespace, besides the newline character '\n', is ignored.
+# All settings passed via the command line, or via the website, take precedence.
+# The configuration file will be overwritten by the application when changing settings.
+
+# Example:
+# encoder_bitrate = 10
+# server_audio_cancel = 0
