@@ -17,8 +17,8 @@ docker pull jaredallard/parsec
 
 ## Tags
 
-`latest` latest parsec client version
-`146` 28th April 2018 (`-2)
+* `latest` latest parsec client version
+* `146` 28th April 2018 (`-2`)
 
 **Note**: The binary is NOT able to update itself, so you may need to update
 your container at some point. The container has no state configure so you should
@@ -33,8 +33,9 @@ $ systemctl enable docker
 $ systemctl start docker
 ```
 
-Arch: `pacman -S docker`
-Ubuntu / Debian:
+**Arch**: `pacman -S docker`
+
+**Ubuntu / Debian**:
 
 ```bash
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -43,7 +44,7 @@ $ sudo apt-get update
 $ sudo apt-get install -y docker-ce
 ```
 
-Gentoo:
+**Gentoo**:
 
 First you'll need build your kernel following [this](https://wiki.gentoo.org/wiki/Docker) guide.
 
