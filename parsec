@@ -18,7 +18,7 @@ docker run -it --rm \
  -e DISPLAY=$DISPLAY \
  -v /tmp/.X11-unix:/tmp/.X11-unix \
  -v /etc/machine-id:/etc/machine-id:ro \
+ -v /dev/shm:/dev/shm \
  -v "/run/user/$USERID/pulse:/run/user/$USERID/pulse:ro" \
- --device=/dev/shm \
  --device=/dev/dri \
  jaredallard/parsec
