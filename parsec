@@ -5,7 +5,14 @@
 set -e -x 
 
 USERID="$(id -u)"
-xhost "si:localhost:${USER}"
+GROUPID="$(id -g)"
+
+xhost -
+xhost "si:usergroup:1000"
+if [[ "$USERID" != "1000" ]] || [[ "$GROUPID" != "1000" ]]; then
+  echo "Warning: defaulting to semi-insecure x (userid != containerUserId)"
+  xhost "local:root"
+fi
 
 docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
  -v "/run/user/$USERID/pulse:/run/user/$USERID/pulse:ro" --device=/dev/dri:/dev/dri \

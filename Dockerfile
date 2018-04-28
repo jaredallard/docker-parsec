@@ -13,4 +13,9 @@ RUN install_clean wget \
 &&  rm parsec-linux.deb \
 &&  apt-get remove -y wget
 
+# add a parsec user
+RUN groupadd --gid 1000 parsec \
+&&  useradd --gid 1000 --uid 1000 -m parsec
+USER parsec
+
 CMD /usr/bin/parsecd
