@@ -14,6 +14,11 @@ if [[ "$USERID" != "1000" ]] || [[ "$GROUPID" != "1000" ]]; then
   xhost "local:root"
 fi
 
-docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
- -v "/run/user/$USERID/pulse:/run/user/$USERID/pulse:ro" --device=/dev/dri:/dev/dri \
+docker run -it --rm \
+ -e DISPLAY=$DISPLAY \
+ -v /tmp/.X11-unix:/tmp/.X11-unix \
+ -v /etc/machine-id:/etc/machine-id:ro \
+ -v "/run/user/$USERID/pulse:/run/user/$USERID/pulse:ro" \
+ --device=/dev/shm \
+ --device=/dev/dri \
  jaredallard/parsec
