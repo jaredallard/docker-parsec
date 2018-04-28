@@ -13,9 +13,13 @@ RUN install_clean wget \
 &&  rm parsec-linux.deb \
 &&  apt-get remove -y wget
 
+# Setup pulseaudio
+COPY pulse-config.conf /etc/pulse/client.conf
+
 # add a parsec user
 RUN groupadd --gid 1000 parsec \
-&&  useradd --gid 1000 --uid 1000 -m parsec
+&&  useradd --gid 1000 --uid 1000 -m parsec \
+&&  usermod -aG video parsec
 USER parsec
 
 CMD /usr/bin/parsecd

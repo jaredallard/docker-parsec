@@ -15,10 +15,9 @@ if [[ "$USERID" != "1000" ]] || [[ "$GROUPID" != "1000" ]]; then
 fi
 
 docker run -it --rm \
- -e DISPLAY=$DISPLAY \
+ --env "DISPLAY" \
  -v /tmp/.X11-unix:/tmp/.X11-unix \
- -v /etc/machine-id:/etc/machine-id:ro \
- -v /dev/shm:/dev/shm \
- -v "/run/user/$USERID/pulse:/run/user/$USERID/pulse:ro" \
- --device=/dev/dri \
+ -v "/run/user/$USERID/pulse:/run/user/1000/pulse" \
+ -v /dev:/dev \
+ --privileged \
  jaredallard/parsec
