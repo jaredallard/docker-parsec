@@ -37,7 +37,7 @@ $ systemctl enable docker
 $ systemctl start docker
 ```
 
-**Arch**: `pacman -S docker`
+**Arch**: `pacman -S xorg-xhost docker`
 
 **Ubuntu / Debian**:
 
