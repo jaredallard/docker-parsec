@@ -7,7 +7,7 @@ CMD ["/sbin/my_init"]
 # parsec dependencies + sound + gpu (install_clean is a wrapper around apt-get)
 RUN install_clean libcairo2 libfreetype6 libgdk-pixbuf2.0-0 libgl1-mesa-glx libgl1 libglib2.0-0 libgtk2.0-0 \ 
     libpango-1.0-0 libpangocairo-1.0-0 libsm6 libxxf86vm1 pulseaudio-utils libgl1-mesa-glx \
-    libgl1-mesa-dri xserver-xorg-video-intel pulseaudio libva2
+    libgl1-mesa-dri xserver-xorg-video-intel pulseaudio libva2 i965-va-driver
 
 # Parsec Client
 RUN install_clean wget \
