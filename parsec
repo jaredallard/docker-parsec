@@ -7,8 +7,7 @@ set -e -x
 USERID="$(id -u)"
 GROUPID="$(id -g)"
 
-xhost -
-xhost "si:usergroup:1000"
+xhost "local:root"
 if [[ "$USERID" != "1000" ]] || [[ "$GROUPID" != "1000" ]]; then
   echo "Warning: defaulting to semi-insecure x (userid != containerUserId)"
   xhost "local:root"

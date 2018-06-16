@@ -18,7 +18,8 @@ docker pull jaredallard/parsec
 ## Tags
 
 * `latest` latest parsec client version
-* `146` 28th April 2018 (`-2`)
+* `146` 28th April 2018 (`-18`)
+* `146-18` 15th June 2018
 
 **Note**: The binary is NOT able to update itself, so you may need to update
 your container at some point. The container has no state configure so you should
