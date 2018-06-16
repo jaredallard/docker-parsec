@@ -17,6 +17,5 @@ docker run -it --rm \
  --env "DISPLAY" \
  -v /tmp/.X11-unix:/tmp/.X11-unix \
  -v "/run/user/$USERID/pulse:/run/user/1000/pulse" \
- -v /dev:/dev \
- --privileged \
- jaredallard/parsec
+ --device /dev/dri \
+ jaredallard/parsec:latest
