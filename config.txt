@@ -9,3 +9,4 @@
 # Example:
 # encoder_bitrate = 10
 server_audio_cancel = 0
+encoder_h265 = 1
