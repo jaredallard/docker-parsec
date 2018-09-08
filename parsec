@@ -13,9 +13,12 @@ if [[ "$USERID" != "1000" ]] || [[ "$GROUPID" != "1000" ]]; then
   xhost "local:root"
 fi
 
+echo "launching parsec: (u${USERID}:g${GROUPID})"
 docker run -it --rm \
- --env "DISPLAY" \
+ --env DISPLAY \
+ --env PULSE_SERVER \
  -v /tmp/.X11-unix:/tmp/.X11-unix \
  -v "/run/user/$USERID/pulse:/run/user/1000/pulse" \
  --device /dev/dri \
- jaredallard/parsec:latest
+ --net=host \
+ jaredallard/parsec:latest app_daemon=1

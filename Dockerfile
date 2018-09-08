@@ -11,7 +11,7 @@ RUN install_clean libcairo2 libfreetype6 libgdk-pixbuf2.0-0 libgl1-mesa-glx libg
 
 # Parsec Client
 RUN install_clean wget \
-&&  wget "https://s3.amazonaws.com/parsec-build/package/parsec-linux.deb" -O parsec-linux.deb \ 
+&&  wget --no-check-certificate "https://s3.amazonaws.com/parsec-build/package/parsec-linux.deb" -O parsec-linux.deb \ 
 &&  dpkg --ignore-depends libsndio6.1 -i parsec-linux.deb # --ignore-depends fixes libsndio \
 &&  rm parsec-linux.deb \
 &&  apt-get remove -y wget
@@ -29,4 +29,4 @@ RUN groupadd --gid 1000 parsec \
 # parsec config
 USER parsec
 COPY config.txt /home/parsec/.parsec/config.txt
-CMD /usr/bin/parsecd
+ENTRYPOINT [ "/usr/bin/parsecd" ]
