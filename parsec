@@ -14,7 +14,7 @@ if [[ "$USERID" != "1000" ]] || [[ "$GROUPID" != "1000" ]]; then
 fi
 
 echo "launching parsec: (u${USERID}:g${GROUPID})"
-docker run -it --rm \
+docker run -it --rm --init \
  --env DISPLAY \
  --env PULSE_SERVER \
  -v /tmp/.X11-unix:/tmp/.X11-unix \
