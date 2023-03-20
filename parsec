@@ -21,4 +21,4 @@ docker run -it --rm --init \
  -v "/run/user/$USERID/pulse:/run/user/1000/pulse" \
  --device /dev/dri \
  --net=host \
- jaredallard/parsec:latest app_daemon=1
+ ghcr.io/jaredallard/docker-parsec:latest app_daemon=1
