@@ -4,7 +4,7 @@ Parsec in a docker container
 
 
 ```bash
-docker pull jaredallard/parsec
+docker pull ghcr.io/jaredallard/docker-parsec
 ./parsec
 ```
 
@@ -23,7 +23,7 @@ docker pull jaredallard/parsec
 
 **Note**: The binary is NOT able to update itself, so you may need to update
 your container at some point. The container has no state configure so you should
-just have to `docker pull jaredallard/parsec:<version>` and re-run `./parsec`
+just have to `docker pull ghcr.io/jaredallard/docker-parsec:<version>` and re-run `./parsec`
 
 ## Persistence
 
