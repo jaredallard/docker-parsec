@@ -8,7 +8,7 @@ RUN chmod +x /usr/bin/install_clean
 RUN install_clean libcairo2 libfreetype6 libgdk-pixbuf2.0-0 libgl1-mesa-glx libgl1 libglib2.0-0 libgtk2.0-0 \ 
     libpango-1.0-0 libpangocairo-1.0-0 libsm6 libxxf86vm1 pulseaudio-utils libgl1-mesa-glx \
     libgl1-mesa-dri xserver-xorg-video-intel pulseaudio libva2 i965-va-driver \
-    libavcodec58 libssl3 ca-certificates
+    libavcodec58 libssl3 ca-certificates libcurl4 libcurl4-openssl-dev
 
 # Parsec Client
 RUN install_clean wget \

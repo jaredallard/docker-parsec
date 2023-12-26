@@ -17,7 +17,7 @@ docker pull ghcr.io/jaredallard/docker-parsec
 
 ## Tags
 
-* `latest` latest parsec client version
+* `main` latest parsec client version
 * `146` 28th April 2018 (`-18`)
 * `146-18` 15th June 2018
 
