@@ -1,75 +1,39 @@
 # parsec
 
-Parsec in a docker container 
-
+Parsec in a docker container with X11 and PulseAudio forwarding.
 
 ```bash
-docker pull ghcr.io/jaredallard/docker-parsec
+git clone https://github.com/jaredallard/docker-parsec
 ./parsec
 ```
 
 ## Benefits
 
 * Easily removable and versioned
-* Works on ALL linux distros that can run Docker (even Gentoo)
-* Sandboxed (remote connects to X and Pulseaudio)
+* Works on ALL linux distributions that can run Docker (even Gentoo)
+* Sandboxed (remote connects to X and PulseAudio)
 * ???
+
+## Prerequisites
+
+* [Docker](https://docs.docker.com/engine/install/)
 
 ## Tags
 
 * `main` latest parsec client version
-* `146` 28th April 2018 (`-18`)
-* `146-18` 15th June 2018
 
 **Note**: The binary is NOT able to update itself, so you may need to update
-your container at some point. The container has no state configure so you should
-just have to `docker pull ghcr.io/jaredallard/docker-parsec:<version>` and re-run `./parsec`
+your container at some point. The container has no state configured by
+default.
 
-## Persistence
+## FAQ
 
-Bind mount `$HOME/.parsec -> /home/parsec/.parsec` i.e: `-v $HOME/.parsec:/home/parsec/.parsec`
+### How do I enable persistence?
 
-## Setup Docker
+You'll need to bind mount the `/home/parsec/.parsec` directory inside
+the container somewhere on your host (e.g., `-v $HOME/.parsec:/home/parsec/.parsec`).
+Currently, you'll need to modify the `parsec` script to do this.
 
-After following setup instructions below (EXCEPT GENTOO), run this:
-
-```bash
-$ systemctl enable docker
-$ systemctl start docker
-```
-
-**Arch**: `pacman -S xorg-xhost docker`
-
-**Ubuntu / Debian**:
-
-```bash
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-$ sudo apt-get update
-$ sudo apt-get install -y docker-ce
-```
-
-**Gentoo**:
-
-First you'll need build your kernel following [this](https://wiki.gentoo.org/wiki/Docker) guide.
-
-Then rebuild your kernel via `buildkernel`, if you have it from Sakaki's guide or `genkernel` (stock), once it's
-done restart your computer
-
-Install Docker
-
-```
-$ sudo emerge -av docker
-```
-
-Verify you configured the kernel properly `/usr/share/docker/contrib/check-config.sh`
-
-**Note**: You can safely ignoring missing features, like, `Storage Drivers` if you're not using them,
-i.e zfs but you only use `ext4,btrfs,etc...`. You can also ignore `CONFIG_NF_NAT_[T]FTP+`
-
-Start docker via `sudo rc-service docker start`, verify it started with `sudo rc-service docker status`.
-If it didn't crash you're good. You should add it to default via `sudo rc-update add docker default`
-
-## License 
+## License
 
 MIT

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#
-# Start the docker container shit
+##
+# Launches parsec in a container.
 
-set -e -x 
+set -euo pipefail
 
 USERID="$(id -u)"
 GROUPID="$(id -g)"
@@ -15,10 +15,10 @@ fi
 
 echo "launching parsec: (u${USERID}:g${GROUPID})"
 docker run -it --rm --init \
- --env DISPLAY \
- --env PULSE_SERVER \
- -v /tmp/.X11-unix:/tmp/.X11-unix \
- -v "/run/user/$USERID/pulse:/run/user/1000/pulse" \
- --device /dev/dri \
- --net=host \
- ghcr.io/jaredallard/docker-parsec:main app_daemon=1
+  --env DISPLAY \
+  --env PULSE_SERVER \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v "/run/user/$USERID/pulse:/run/user/1000/pulse" \
+  --device /dev/dri \
+  --net=host \
+  ghcr.io/jaredallard/docker-parsec:main app_daemon=1
