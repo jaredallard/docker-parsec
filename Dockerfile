@@ -1,5 +1,5 @@
 # See base-image/image
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ENTRYPOINT [ "/usr/bin/parsecd" ]
 
 COPY bin/install_clean /usr/bin/install_clean
