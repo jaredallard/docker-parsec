@@ -44,7 +44,7 @@ jobs:
           platforms: "linux/amd64"
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main,${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       - name: Attest
-        uses: actions/attest-build-provenance@v1
+        uses: actions/attest-build-provenance@v2
         id: attest
         with:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
