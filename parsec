@@ -17,8 +17,15 @@ echo "launching parsec: (u${USERID}:g${GROUPID})"
 docker run -it --rm --init \
   --env DISPLAY \
   --env PULSE_SERVER \
+  --privileged \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v "/run/user/$USERID/pulse:/run/user/1000/pulse" \
+  -v /dev/input:/dev/input \
+  -v /dev/bus/usb:/dev/bus/usb \
+  --mount source=parsec_home,target=/home/parsec  \
+  --device /dev/input \
+  --device /dev/bus/usb \
   --device /dev/dri \
   --net=host \
   ghcr.io/jaredallard/docker-parsec:main app_daemon=1
+
