@@ -1,5 +1,11 @@
 # parsec
 
+> [!WARNING]
+> This repository has been archived in favor of the Parsec
+> flatpak: https://flathub.org/en/apps/com.parsecgaming.parsec.
+>
+> It is no longer supported or updated.
+
 Parsec in a docker container with X11 and PulseAudio forwarding.
 
 ```bash
